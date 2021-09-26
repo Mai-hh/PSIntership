@@ -11,7 +11,6 @@
         android:theme="@style/Theme.LittleRecipes">
         <activity
             android:name=".activity.RecipeActivity"
-            android:theme="@style/RecipeActivityTheme"
             android:exported="true" />
         <activity
             android:name=".activity.MainActivity"

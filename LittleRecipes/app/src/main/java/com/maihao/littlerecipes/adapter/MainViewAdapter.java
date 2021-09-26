@@ -63,6 +63,10 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
             public void onClick(View view) {
                 QueryDataViewModel viewModel = viewModels.get(holder.getAdapterPosition());
                 Intent intent = new Intent(mContext, RecipeActivity.class);
+                intent.putExtra("title", viewModel.title.getValue());
+                intent.putExtra("imageId", viewModel.imageId.getValue());
+                intent.putExtra("ingredients", viewModel.ingredients.getValue());
+                // todo 其他属性
                 mContext.startActivity(intent);
                 if (mContext instanceof RecipeActivity) {
                     ((Activity) mContext).finish();

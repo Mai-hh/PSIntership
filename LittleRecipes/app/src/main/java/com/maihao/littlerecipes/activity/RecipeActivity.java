@@ -8,9 +8,11 @@ import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -32,7 +34,8 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Intent intent = getIntent();
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recipe);
         button = binding.chooseRecipesFloatingButton;
         toolbar = binding.recipeToolbar;
@@ -40,6 +43,8 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         mDrawerLayout = (DrawerLayout) binding.getRoot();
         button.setOnClickListener(this);
         initActionBar();
+        binding.collapsingToolbar.setTitle(intent.getStringExtra("title"));
+        binding.recipeImageView.setImageResource(intent.getIntExtra("imageId", 0));
     }
 
     private void initActionBar() {
@@ -48,6 +53,7 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
     }
 
     @Override

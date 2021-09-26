@@ -11,11 +11,23 @@ public class QueryDataViewModel extends ViewModel {
 
     public MutableLiveData<String> content = new MutableLiveData<>();
 
+    public MutableLiveData<Integer> imageId = new MutableLiveData<>();
+
+    public MutableLiveData<String> ingredients = new MutableLiveData<>();
+
     public MutableLiveData<String> getTitle() {
         return title;
     }
 
     public MutableLiveData<String> getContent() {
         return content;
+    }
+
+    public MutableLiveData<Integer> getImageId() {
+        return imageId;
+    }
+
+    public MutableLiveData<String> getIngredients() {
+        return ingredients;
     }
 }

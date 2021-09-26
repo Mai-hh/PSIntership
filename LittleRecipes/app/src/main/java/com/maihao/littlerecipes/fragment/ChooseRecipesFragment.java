@@ -51,10 +51,15 @@ public class ChooseRecipesFragment extends Fragment {
     private void initData() {
 
         for (int i = 0; i < 10; i++) {
-            RecipeData data = new RecipeData("test title", "test content");
+            RecipeData data = new RecipeData("test title" + i, "test content" + i);
+            data.setImageId(R.drawable.recipe_1);
+            data.setIngredients("test ingredients" + i);
 //            RecipeData data = new RecipeData();
             QueryDataViewModel viewModel = new QueryDataViewModel();
             viewModel.title.setValue(data.getTitle());
+            viewModel.content.setValue(data.getContent());
+            viewModel.imageId.setValue(data.getImageId());
+            viewModel.ingredients.setValue(data.getIngredients());
             viewModels.add(viewModel);
         }
 
