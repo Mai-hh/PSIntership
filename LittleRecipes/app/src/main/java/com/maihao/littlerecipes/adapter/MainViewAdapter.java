@@ -1,15 +1,18 @@
 package com.maihao.littlerecipes.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.maihao.littlerecipes.R;
+import com.maihao.littlerecipes.activity.RecipeActivity;
 import com.maihao.littlerecipes.model.RecipeData;
 
 import java.util.List;
@@ -22,6 +25,8 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
 
     public static class MainViewHolder extends RecyclerView.ViewHolder {
 
+        CardView cardView;
+
         TextView titleText;
 
         TextView contentText;
@@ -30,6 +35,7 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
             super(itemView);
             titleText = itemView.findViewById(R.id.item_recipe_title);
             contentText = itemView.findViewById(R.id.item_recipe_content);
+            cardView = itemView.findViewById(R.id.main_card_view);
         }
     }
 
@@ -42,7 +48,18 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
     @Override
     public MainViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card_view, parent, false);
-        return new MainViewHolder(view);
+
+        final MainViewHolder holder = new MainViewHolder(view);
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                RecipeData data = recipeDataList.get(holder.getAdapterPosition());
+                Intent intent = new Intent(mContext, RecipeActivity.class);
+                mContext.startActivity(intent);
+            }
+        });
+
+        return holder;
     }
 
     @Override
