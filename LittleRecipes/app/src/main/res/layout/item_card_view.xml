@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="wrap_content"
-    android:layout_width="match_parent">
-    <androidx.cardview.widget.CardView
-        android:id="@+id/main_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_margin="10dp"
-        app:cardCornerRadius="10dp">
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <LinearLayout
-            android:orientation="vertical"
+    <data>
+        <import type="com.maihao.littlerecipes.viewmodel.QueryDataViewModel" />
+        <variable
+            name="viewModel"
+            type="QueryDataViewModel" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/main_card_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="150dp"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp">
 
-            <TextView
-                android:id="@+id/item_recipe_title"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:text="Recipe title"
-                android:layout_marginTop="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/light_gray" />
+                <TextView
+                    android:id="@+id/item_recipe_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="@{viewModel.title,default=Recipe_title}"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/item_recipe_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:text="Recipe content" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-</FrameLayout>
+                <ImageView
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/light_gray" />
+
+                <TextView
+                    android:id="@+id/item_recipe_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="@{viewModel.content,default=Recipe_content}" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </FrameLayout>
+</layout>

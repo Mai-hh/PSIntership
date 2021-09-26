@@ -11,7 +11,7 @@ public class RecipeData {
 
     private String ingredients;
 
-    private String pros
+    private String procedure;
 
     public RecipeData() {
 
@@ -40,5 +40,27 @@ public class RecipeData {
     }
 
 
+    public int getImageId() {
+        return imageId;
+    }
 
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getProcedure() {
+        return procedure;
+    }
+
+    public void setProcedure(String procedure) {
+        this.procedure = procedure;
+    }
 }

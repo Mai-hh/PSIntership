@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import com.maihao.littlerecipes.R;
 import com.maihao.littlerecipes.adapter.MainViewAdapter;
 import com.maihao.littlerecipes.databinding.FragmentChooseRecipesBinding;
 import com.maihao.littlerecipes.model.RecipeData;
+import com.maihao.littlerecipes.viewmodel.QueryDataViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,8 @@ public class ChooseRecipesFragment extends Fragment {
 
     FragmentChooseRecipesBinding binding;
 
-    List<RecipeData> dataList = new ArrayList<>();
+    List<QueryDataViewModel> viewModels = new ArrayList<>();
+
 
     @Nullable
     @Override
@@ -39,7 +42,7 @@ public class ChooseRecipesFragment extends Fragment {
 
         mRecyclerView = binding.recipesRecyclerView;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        MainViewAdapter adapter = new MainViewAdapter(getActivity(), dataList);
+        MainViewAdapter adapter = new MainViewAdapter(getActivity(), viewModels);
         mRecyclerView.setAdapter(adapter);
         return binding.getRoot();
     }
@@ -49,7 +52,10 @@ public class ChooseRecipesFragment extends Fragment {
 
         for (int i = 0; i < 10; i++) {
             RecipeData data = new RecipeData("test title", "test content");
-            dataList.add(data);
+//            RecipeData data = new RecipeData();
+            QueryDataViewModel viewModel = new QueryDataViewModel();
+            viewModel.title.setValue(data.getTitle());
+            viewModels.add(viewModel);
         }
 
     }
