@@ -39,7 +39,7 @@ public class ChooseRecipesFragment extends Fragment {
 
         mRecyclerView = binding.recipesRecyclerView;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        MainViewAdapter adapter = new MainViewAdapter(getContext(), dataList);
+        MainViewAdapter adapter = new MainViewAdapter(getActivity(), dataList);
         mRecyclerView.setAdapter(adapter);
         return binding.getRoot();
     }

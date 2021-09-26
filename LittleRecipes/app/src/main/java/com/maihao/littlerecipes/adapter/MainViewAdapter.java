@@ -1,5 +1,6 @@
 package com.maihao.littlerecipes.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -56,6 +57,9 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
                 RecipeData data = recipeDataList.get(holder.getAdapterPosition());
                 Intent intent = new Intent(mContext, RecipeActivity.class);
                 mContext.startActivity(intent);
+                if (mContext instanceof RecipeActivity) {
+                    ((Activity) mContext).finish();
+                }
             }
         });
 

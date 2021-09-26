@@ -7,6 +7,12 @@ public class RecipeData {
 
     private String content;
 
+    private int imageId;
+
+    private String ingredients;
+
+    private String pros
+
     public RecipeData() {
 
     }
