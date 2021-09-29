@@ -65,7 +65,9 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
                 Intent intent = new Intent(mContext, RecipeActivity.class);
                 intent.putExtra("title", viewModel.title.getValue());
                 intent.putExtra("imageId", viewModel.imageId.getValue());
+                intent.putExtra("imageSrc", viewModel.imageSrc.getValue());
                 intent.putExtra("ingredients", viewModel.ingredients.getValue());
+                intent.putExtra("procedures", viewModel.procedures.getValue());
                 // todo 其他属性
                 mContext.startActivity(intent);
                 if (mContext instanceof RecipeActivity) {

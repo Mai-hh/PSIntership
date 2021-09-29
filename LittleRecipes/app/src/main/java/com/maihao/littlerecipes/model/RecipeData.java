@@ -12,6 +12,15 @@ public class RecipeData {
     private String ingredients;
 
     private String procedure;
+    private String imageSrc;
+
+    public String getImageSrc() {
+        return imageSrc;
+    }
+
+    public void setImageSrc(String imageSrc) {
+        this.imageSrc = imageSrc;
+    }
 
     public RecipeData() {
 

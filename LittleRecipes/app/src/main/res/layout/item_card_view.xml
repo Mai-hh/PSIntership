@@ -18,7 +18,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/main_card_view"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             app:cardCornerRadius="10dp">
 
@@ -51,6 +51,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     tools:text="@{viewModel.content,default=Recipe_content}" />

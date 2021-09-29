@@ -4,7 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.maihao.littlerecipes.viewmodel.QueryDataViewModel" />
+        <variable
+            name="viewModel"
+            type="QueryDataViewModel" />
     </data>
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -60,21 +63,33 @@
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="15dp"
-                        android:layout_marginHorizontal="15dp"
-                        android:layout_marginTop="35dp"
+                        android:layout_margin="10dp"
                         app:cardCornerRadius="4dp">
 
                         <TextView
-                            android:id="@+id/recipe_step"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp" />
+                            android:id="@+id/ingredients_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="test ingredients" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        app:cardCornerRadius="4dp">
+
+                        <TextView
+                            android:id="@+id/procedures_text_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="test procedures"/>
 
                     </androidx.cardview.widget.CardView>
 
