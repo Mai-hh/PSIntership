@@ -48,18 +48,14 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
 
     ViewPager2 proceduresViewPager2;
 
-    private QueryDataViewModel viewModel;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Intent intent = getIntent();
-//        viewModel = new ViewModelProvider(this, new ViewModelProvider.NewInstanceFactory()).get(QueryDataViewModel.class);
-//        viewModel.imageSrc.setValue(intent.getStringExtra("ImageSrc"));
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recipe);
-        binding.setViewModel(viewModel);
+
         button = binding.chooseRecipesFloatingButton;
         toolbar = binding.recipeToolbar;
         toolbarLayout = binding.collapsingToolbar;
@@ -68,8 +64,6 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         initActionBar();
         toolbarLayout.setTitle(intent.getStringExtra("title"));
         binding.recipeImageView.setImageResource(intent.getIntExtra("imageId", 0));
-//        binding.ingredientsTextView.setText(intent.getStringExtra("ingredients"));
-//        binding.proceduresTextView.setText(intent.getStringExtra("procedures"));
 
         // 设置食材布局
         ingredientsRecyclerView = binding.ingredientsRecyclerView;

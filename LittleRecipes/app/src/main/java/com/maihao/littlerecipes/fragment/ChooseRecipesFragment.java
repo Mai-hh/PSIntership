@@ -1,5 +1,8 @@
 package com.maihao.littlerecipes.fragment;
 
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -8,13 +11,17 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.maihao.littlerecipes.R;
 import com.maihao.littlerecipes.adapter.MainViewAdapter;
+import com.maihao.littlerecipes.database.RecipeDataSQLHelper;
 import com.maihao.littlerecipes.databinding.FragmentChooseRecipesBinding;
 import com.maihao.littlerecipes.model.RecipeData;
+import com.maihao.littlerecipes.util.Utility;
 import com.maihao.littlerecipes.viewmodel.QueryDataViewModel;
 
 import java.util.ArrayList;
@@ -28,20 +35,78 @@ public class ChooseRecipesFragment extends Fragment {
 
     List<QueryDataViewModel> viewModels = new ArrayList<>();
 
+    RecipeDataSQLHelper sqlHelper;
+
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // 初始化data binding
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_choose_recipes, container, false);
 
-        initData();
+        // 初始化数据库
+        sqlHelper = new RecipeDataSQLHelper(getContext(), "Recipes.db", null, 6);
+
+        // 注释掉的这个方法在非数据库储存时使用
+//        initData();
+
+        // 从数据库中请求数据
+        queryRecipes();
 
         mRecyclerView = binding.recipesRecyclerView;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         MainViewAdapter adapter = new MainViewAdapter(getActivity(), viewModels);
         mRecyclerView.setAdapter(adapter);
+
         return binding.getRoot();
     }
+
+    private void queryRecipes() {
+
+        SQLiteDatabase db = sqlHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM Recipes", null);
+        if (cursor.moveToFirst()) {
+            do {
+                RecipeData data  = new RecipeData();
+                @SuppressLint("Range") String title = cursor.getString(cursor.getColumnIndex("title"));
+                @SuppressLint("Range") String content = cursor.getString(cursor.getColumnIndex("content"));
+                @SuppressLint("Range") int imageId = cursor.getInt(cursor.getColumnIndex("imageId"));
+                @SuppressLint("Range") String ingredients = cursor.getString(cursor.getColumnIndex("ingredients"));
+                @SuppressLint("Range") String procedure = cursor.getString(cursor.getColumnIndex("procedure"));
+                data.setTitle(title);
+                data.setContent(content);
+                data.setImageId(imageId);
+                data.setIngredients(ingredients);
+                data.setProcedure(procedure);
+                QueryDataViewModel viewModel = new QueryDataViewModel();
+                viewModel.title.setValue(data.getTitle());
+                viewModel.content.setValue(data.getContent());
+                viewModel.imageId.setValue(data.getImageId());
+                viewModel.imageSrc.setValue(data.getImageSrc());
+                viewModel.ingredients.setValue(data.getIngredients());
+                viewModel.procedures.setValue(data.getProcedure());
+                viewModels.add(viewModel);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     private void initData() {
@@ -402,10 +467,8 @@ public class ChooseRecipesFragment extends Fragment {
             data.setImageId(imageIds[i]);
             data.setIngredients(ingredients[i]);
             data.setProcedure(procedures[i]);
-            data.setImageSrc(imageSrcs[i]);
+            Utility.putRecipeData(data, sqlHelper);
             QueryDataViewModel viewModel = new QueryDataViewModel();
-//            QueryDataViewModel viewModel = new ViewModelProvider(this,
-//                    new ViewModelProvider.NewInstanceFactory()).get(QueryDataViewModel.class);
             viewModel.title.setValue(data.getTitle());
             viewModel.content.setValue(data.getContent());
             viewModel.imageId.setValue(data.getImageId());

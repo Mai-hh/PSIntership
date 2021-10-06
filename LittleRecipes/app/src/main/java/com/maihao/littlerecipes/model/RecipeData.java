@@ -12,6 +12,7 @@ public class RecipeData {
     private String ingredients;
 
     private String procedure;
+
     private String imageSrc;
 
     public String getImageSrc() {
