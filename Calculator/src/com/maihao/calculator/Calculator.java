@@ -29,6 +29,10 @@ public class Calculator {
 
         // 读取运算式子
         String formula = scanner.next() + "#";
+        if (formula.contains(")(")) {
+            System.out.println("不支持" + ")(" + "格式");
+            return;
+        }
 
         // 用一个缓存区来支持浮点数
         StringBuilder numBuffer = new StringBuilder();
@@ -60,11 +64,6 @@ public class Calculator {
                 boolean loop = true;
                 while (loop) {
 
-                    if (operatorStack.isEmpty()) {
-                        System.out.println("运算符数量异常");
-                        break;
-                    }
-
                     // 拿到栈顶运算符
                     char preOperator = operatorStack.peek();
                     int preOperatorNum = getOperatorNum(preOperator);
@@ -87,11 +86,12 @@ public class Calculator {
                             double result = operate(num1, num2, opr);
                             numStack.push(result);
                             break;
-                        case 'E':
-                            System.out.println("算式格式异常");
-                            break;
+//                        case 'E':
+////                            System.out.println("算式格式异常");
+//                            loop = false;
+//                            break;
                         default:
-                            System.out.println("运算符类型异常");
+                            loop = false;
                             break;
                     }
 
@@ -99,8 +99,10 @@ public class Calculator {
                 index++;
             }
         }
-        if (numStack.size() != 1) {
+        if (numStack.size() != 1 && operatorStack.size() != 0) {
             System.out.println("算式格式有误");
+        } else if (numStack.isEmpty()) {
+            System.out.println("请输入数字");
         } else {
             System.out.println(numStack.pop());
         }
