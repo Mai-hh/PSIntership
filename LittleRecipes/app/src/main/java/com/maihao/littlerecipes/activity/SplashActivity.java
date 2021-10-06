@@ -26,7 +26,7 @@ public class SplashActivity extends AppCompatActivity {
         // 开一个线程去开活动吧
         new Thread(() -> {
             try {
-                sleep(1000);
+                sleep(3000);
                 Intent intent = new Intent(getApplication(), MainActivity.class);
                 startActivity(intent);
                 SplashActivity.this.finish();

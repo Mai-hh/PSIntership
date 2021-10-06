@@ -53,7 +53,7 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         button.setOnClickListener(this);
         initActionBar();
         toolbarLayout.setTitle(intent.getStringExtra("title"));
-        // todo 这句注释掉是希望用viewModel绑定
+        // todo 希望用viewModel绑定
         binding.recipeImageView.setImageResource(intent.getIntExtra("imageId", 0));
         binding.ingredientsTextView.setText(intent.getStringExtra("ingredients"));
         binding.proceduresTextView.setText(intent.getStringExtra("procedures"));

@@ -58,6 +58,7 @@
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@color/background"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <LinearLayout
@@ -71,11 +72,30 @@
                         android:layout_margin="10dp"
                         app:cardCornerRadius="4dp">
 
-                        <TextView
-                            android:id="@+id/ingredients_text_view"
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:background="@color/item_card"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="test ingredients" />
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Ingredients:"
+                                android:textStyle="bold"
+                                android:textSize="25sp"
+                                android:textColor="@color/deep_blue"
+                                android:layout_marginStart="10dp" />
+
+                            <TextView
+                                android:id="@+id/ingredients_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="test ingredients"
+                                android:textSize="18sp"
+                                android:layout_margin="10dp"/>
+
+                        </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 
@@ -85,11 +105,30 @@
                         android:layout_margin="10dp"
                         app:cardCornerRadius="4dp">
 
-                        <TextView
-                            android:id="@+id/procedures_text_view"
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:background="@color/item_card"
                             android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="test procedures"/>
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Procedures:"
+                                android:textStyle="bold"
+                                android:textSize="25sp"
+                                android:textColor="@color/deep_blue"
+                                android:layout_marginStart="10dp" />
+
+                            <TextView
+                                android:id="@+id/procedures_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="test procedures"
+                                android:textSize="18sp"
+                                android:layout_margin="10dp"/>
+
+                        </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
 

@@ -6,15 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.maihao.littlerecipes.R;
 import com.maihao.littlerecipes.adapter.MainViewAdapter;
 import com.maihao.littlerecipes.databinding.FragmentChooseRecipesBinding;
@@ -101,11 +97,311 @@ public class ChooseRecipesFragment extends Fragment {
                 "@drawable/recipe_10",
         };
 
+        String[] ingredients = {
+                "- 2 tablespoons sesame seeds\n" +
+                        "\n" +
+                        "- 1 tablespoon poppy seeds\n" +
+                        "\n" +
+                        "- ½ cup white sugar\n" +
+                        "\n" +
+                        "- ½ cup olive oil\n" +
+                        "\n" +
+                        "- ¼ cup distilled white vinegar\n" +
+                        "\n" +
+                        "- ¼ teaspoon paprika\n" +
+                        "\n" +
+                        "- ¼ teaspoon Worcestershire sauce\n" +
+                        "\n" +
+                        "- 1 tablespoon minced onion\n" +
+                        "\n" +
+                        "- 10 ounces fresh spinach - rinsed, dried and torn into bite-size pieces\n" +
+                        "\n" +
+                        "- 1 quart strawberries - cleaned, hulled and sliced\n" +
+                        "\n" +
+                        "- ¼ cup almonds, blanched and slivered",
+                "- 1 head romaine lettuce- rinsed, dried and chopped\n" +
+                        "\n" +
+                        "- 1 red onion, thinly sliced\n" +
+                        "\n" +
+                        "- 1 (6 ounce) can pitted black olives\n" +
+                        "\n" +
+                        "- 1 green bell pepper, chopped\n" +
+                        "\n" +
+                        "- 1 red bell pepper, chopped\n" +
+                        "\n" +
+                        "- 2 large tomatoes, chopped\n" +
+                        "\n" +
+                        "- 1 cucumber, sliced\n" +
+                        "\n" +
+                        "- 1 cup crumbled feta cheese\n" +
+                        "\n" +
+                        "- 6 tablespoons olive oil\n" +
+                        "\n" +
+                        "- 1 teaspoon dried oregano\n" +
+                        "\n" +
+                        "- 1 lemon, juiced\n" +
+                        "\n" +
+                        "- ground black pepper to taste",
+                "- ½ pound crumbled blue cheese\n" +
+                        "  \n" +
+                        "- ¼ cup sour cream\n" +
+                        "  \n" +
+                        "- ⅓ cup buttermilk\n" +
+                        "\n" +
+                        "- ½ cup mayonnaise\n" +
+                        "\n" +
+                        "- ¼ cup red wine vinegar\n" +
+                        "\n" +
+                        "- 1 tablespoon extra-virgin olive oil\n" +
+                        "\n" +
+                        "- 1½ tablespoons white sugar\n" +
+                        "\n" +
+                        "- 1 clove garlic, minced\n" +
+                        "\n" +
+                        "- ground black pepper to taste\n" +
+                        "\n" +
+                        "- 1 head iceberg lettuce, cut into 8 wedges\n" +
+                        "\n" +
+                        "- 2 roma tomatoes, diced\n" +
+                        "\n" +
+                        "- 1 small red onion, thinly sliced\n" +
+                        "\n" +
+                        "- ½ pound crumbled blue cheese",
+                "- 1 cup mayonnaise (Optional)\n" +
+                        "\n" +
+                        "- ¼ cup white vinegar\n" +
+                        "\n" +
+                        "- 2 tablespoons Dijon mustard\n" +
+                        "\n" +
+                        "- 2 teaspoons kosher salt, or more to taste\n" +
+                        "\n" +
+                        "- ½ teaspoon ground black pepper\n" +
+                        "\n" +
+                        "- ⅛ teaspoon cayenne pepper\n" +
+                        "\n" +
+                        "- 1 tablespoon white sugar, or more to taste\n" +
+                        "\n" +
+                        "- 1 cup finely diced celery\n" +
+                        "\n" +
+                        "- ¾ cup diced red bell pepper\n" +
+                        "\n" +
+                        "- ½ cup grated carrot\n" +
+                        "\n" +
+                        "- ½ cup chopped green onions, white and light parts\n" +
+                        "\n" +
+                        "- ¼ cup diced jalapeno pepper\n" +
+                        "\n" +
+                        "- ¼ cup diced poblano pepper\n" +
+                        "\n" +
+                        "- 1 (16 ounce) package uncooked elbow macaroni\n" +
+                        "\n" +
+                        "- 1 tablespoon mayonnaise (Optional)\n" +
+                        "\n" +
+                        "- 1 tablespoon water (Optional)",
+                "- 1 pint strawberries - cleaned, hulled and sliced\n" +
+                        "\n" +
+                        "- 1 pound seedless grapes, halved\n" +
+                        "\n" +
+                        "- 3 kiwis, peeled and sliced\n" +
+                        "\n" +
+                        "- 3 bananas, sliced\n" +
+                        "\n" +
+                        "- 1 (21 ounce) can peach pie filling",
+                "- ⅓ cup fresh lime juice\n" +
+                        "\n" +
+                        "- ½ cup olive oil\n" +
+                        "\n" +
+                        "- 1 clove garlic, minced\n" +
+                        "\n" +
+                        "- 1 teaspoon salt\n" +
+                        "\n" +
+                        "- ⅛ teaspoon ground cayenne pepper\n" +
+                        "\n" +
+                        "- 2 (15 ounce) cans black beans, rinsed and drained\n" +
+                        "\n" +
+                        "- 1½ cups frozen corn kernels\n" +
+                        "\n" +
+                        "- 1 avocado - peeled, pitted and diced\n" +
+                        "\n" +
+                        "- 1 red bell pepper, chopped\n" +
+                        "\n" +
+                        "- 2 tomatoes, chopped\n" +
+                        "\n" +
+                        "- 6 green onions, thinly sliced\n" +
+                        "\n" +
+                        "- ½ cup chopped fresh cilantro (Optional)",
+                "- ½ cup mayonnaise\n" +
+                        "\n" +
+                        "- 1 tablespoon lemon juice\n" +
+                        "\n" +
+                        "- ¼ teaspoon ground black pepper\n" +
+                        "\n" +
+                        "- 2 cups chopped, cooked chicken meat\n" +
+                        "\n" +
+                        "- ½ cup blanched slivered almonds\n" +
+                        "\n" +
+                        "- 1 stalk celery, chopped",
+                "- 6 tablespoons rice wine vinegar\n" +
+                        "\n" +
+                        "- 6 tablespoons vegetable oil\n" +
+                        "\n" +
+                        "- 5 tablespoons creamy peanut butter\n" +
+                        "\n" +
+                        "- 3 tablespoons soy sauce\n" +
+                        "\n" +
+                        "- 3 tablespoons brown sugar\n" +
+                        "\n" +
+                        "- 2 tablespoons minced fresh ginger root\n" +
+                        "\n" +
+                        "- 1½ tablespoons minced garlic\n" +
+                        "\n" +
+                        "- 5 cups thinly sliced green cabbage\n" +
+                        "\n" +
+                        "- 2 cups thinly sliced red cabbage\n" +
+                        "\n" +
+                        "- 2 cups shredded napa cabbage\n" +
+                        "\n" +
+                        "- 2 red bell peppers, thinly sliced\n" +
+                        "\n" +
+                        "- 2 carrots, julienned\n" +
+                        "\n" +
+                        "- 6 green onions, chopped\n" +
+                        "\n" +
+                        "- ½ cup chopped fresh cilantro",
+                "- 1⅓ cups mayonnaise\n" +
+                        "\n" +
+                        "- ⅓ cup sour cream\n" +
+                        "\n" +
+                        "- ⅓ cup buttermilk\n" +
+                        "\n" +
+                        "- 1 tablespoon minced fresh Italian parsley\n" +
+                        "\n" +
+                        "- 2 teaspoons sliced fresh chives\n" +
+                        "\n" +
+                        "- ½ teaspoon dried dill weed\n" +
+                        "\n" +
+                        "- ¼ teaspoon dried tarragon\n" +
+                        "\n" +
+                        "- ¼ teaspoon garlic powder\n" +
+                        "\n" +
+                        "- ¼ teaspoon onion powder\n" +
+                        "\n" +
+                        "- ¼ teaspoon freshly ground black pepper\n" +
+                        "\n" +
+                        "- 1 pinch cayenne pepper\n" +
+                        "\n" +
+                        "- 1 pinch salt\n" +
+                        "\n" +
+                        "- 2 drops Worcestershire sauce",
+                "- 2 tablespoons sesame seeds\n" +
+                        "\n" +
+                        "- 1 tablespoon poppy seeds\n" +
+                        "\n" +
+                        "- ½ cup white sugar\n" +
+                        "\n" +
+                        "- ½ cup olive oil\n" +
+                        "\n" +
+                        "- ¼ cup distilled white vinegar\n" +
+                        "\n" +
+                        "- ¼ teaspoon paprika\n" +
+                        "\n" +
+                        "- ¼ teaspoon Worcestershire sauce\n" +
+                        "\n" +
+                        "- 1 tablespoon minced onion\n" +
+                        "\n" +
+                        "- 10 ounces fresh spinach - rinsed, dried and torn into bite-size pieces\n" +
+                        "\n" +
+                        "- 1 quart strawberries - cleaned, hulled and sliced\n" +
+                        "\n" +
+                        "- ¼ cup almonds, blanched and slivered"
+        };
+
+        String[] procedures = {
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  In a large bowl, stir together the green onions, lemon grass, cilantro, mint leaves, lime juice, fish sauce, chili sauce and sugar until well combined and the sugar is dissolved. Adjust the flavor, if desired, by adding more sugar and/or fish sauce. Set aside.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  Cook the steak over high heat on a preheated grill for approximately 4-6 minutes on each side, until it is cooked medium. Do not overcook the meat! Remove from heat and slice into thin strips. Add the meat and its juices to the sauce and refrigerate, tightly covered, for at least 3 hours.\n" +
+                        "\n" +
+                        "- **Step 3**\n" +
+                        "\n" +
+                        "  Tear the lettuce into bite size pieces and place in a salad bowl. Arrange the cucumber on top of the lettuce, and then pour the meat and sauce over. Top with the cherry tomatoes and garnish with fresh cilantro leaves.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  In a large salad bowl, combine the Romaine, onion, olives, bell peppers, tomatoes, cucumber and cheese.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  Whisk together the olive oil, oregano, lemon juice and black pepper. Pour dressing over salad, toss and serve.\n",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  Combine 1/2 pound blue cheese, sour cream, buttermilk, mayonnaise, vinegar, olive oil, sugar, garlic, and pepper in a bowl; blend using a hand mixer; chill until serving.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  Build the salad by placing 1 lettuce wedge on each of 8 plates. Drizzle equal amounts of dressing over each wedge. Scatter tomatoes, onion, and 1/2 pound blue cheese over each salad.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  Whisk 1 cup mayonnaise, vinegar, Dijon mustard, salt, black pepper, and cayenne pepper together in a bowl until well blended; whisk in sugar. Stir in celery, red bell pepper, carrot, onions, and jalapeno and poblano peppers. Refrigerate until macaroni is ready to dress.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  Bring a large pot of well salted water to a boil. Cook elbow macaroni in the boiling water, stirring occasionally until cooked through, 8 to 10 minutes. Drain but do not rinse. Allow macaroni to drain in a colander about 5 minutes, shaking out moisture from time to time. Pour macaroni into large bowl; toss to separate and cool to room temperature. Macaroni should be sticky.\n" +
+                        "\n" +
+                        "- **Step 3**\n" +
+                        "\n" +
+                        "  Pour dressing over macaroni and stir until dressing is evenly distributed. Cover with plastic wrap. Refrigerate at least 4 hours or, ideally, overnight to allow dressing to absorb into the macaroni.\n" +
+                        "\n" +
+                        "- **Step 4**\n" +
+                        "\n" +
+                        "  Stir salad before serving. Mix 1 tablespoon mayonnaise and 1 tablespoon water into salad for fresher look.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  In a large bowl, combine the strawberries, grapes, kiwis, and bananas. Gently mix in peaches. Chill for 1 hour before serving.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  Place lime juice, olive oil, garlic, salt, and cayenne pepper in a small jar. Cover with lid, and shake until ingredients are well mixed.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  In a salad bowl, combine beans, corn, avocado, bell pepper, tomatoes, green onions, and cilantro. Shake lime dressing, and pour it over the salad. Stir salad to coat vegetables and beans with dressing, and serve.\n",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  Place almonds in a frying pan. Toast over medium-high heat, shaking frequently. Watch carefully, as they burn easily.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  In a medium bowl, mix together mayonnaise, lemon juice, and pepper. Toss with chicken, almonds, and celery.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  In a medium bowl, whisk together the rice vinegar, oil, peanut butter, soy sauce, brown sugar, ginger, and garlic.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  In a large bowl, mix the green cabbage, red cabbage, napa cabbage, red bell peppers, carrots, green onions, and cilantro. Toss with the peanut butter mixture just before serving.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  Combine mayonnaise, sour cream, and buttermilk in a large bowl. Stir in parsley, chives, dill, tarragon, garlic powder, onion powder, black pepper, cayenne pepper, salt, and Worcestershire sauce until combined.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  Cover and refrigerate for 4 hours to overnight. Season with salt and black pepper to taste.",
+                "- **Step 1**\n" +
+                        "\n" +
+                        "  In a medium bowl, whisk together the sesame seeds, poppy seeds, sugar, olive oil, vinegar, paprika, Worcestershire sauce and onion. Cover, and chill for one hour.\n" +
+                        "\n" +
+                        "- **Step 2**\n" +
+                        "\n" +
+                        "  In a large bowl, combine the spinach, strawberries and almonds. Pour dressing over salad, and toss. Refrigerate 10 to 15 minutes before serving.",
+        };
+
         for (int i = 0; i < 10; i++) {
             RecipeData data = new RecipeData(titles[i], contents[i]);
             data.setImageId(imageIds[i]);
-            data.setIngredients("test ingredients" + i);
-            data.setProcedure("test procedures" + i);
+            data.setIngredients(ingredients[i]);
+            data.setProcedure(procedures[0]);
             data.setImageSrc(imageSrcs[i]);
             QueryDataViewModel viewModel = new QueryDataViewModel();
 //            QueryDataViewModel viewModel = new ViewModelProvider(this,
