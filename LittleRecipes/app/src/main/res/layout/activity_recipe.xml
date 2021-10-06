@@ -67,6 +67,7 @@
                     android:layout_height="match_parent">
 
                     <androidx.cardview.widget.CardView
+                        android:descendantFocusability="blocksDescendants"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -87,13 +88,11 @@
                                 android:textColor="@color/deep_blue"
                                 android:layout_marginStart="10dp" />
 
-                            <TextView
-                                android:id="@+id/ingredients_text_view"
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/ingredients_recycler_view"
+                                android:layout_marginStart="5dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="test ingredients"
-                                android:textSize="18sp"
-                                android:layout_margin="10dp"/>
+                                android:layout_height="wrap_content" />
 
                         </LinearLayout>
 
@@ -120,13 +119,11 @@
                                 android:textColor="@color/deep_blue"
                                 android:layout_marginStart="10dp" />
 
-                            <TextView
-                                android:id="@+id/procedures_text_view"
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/procedures_view_pager_2"
+                                android:layout_marginHorizontal="10dp"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="test procedures"
-                                android:textSize="18sp"
-                                android:layout_margin="10dp"/>
+                                android:layout_height="180dp" />
 
                         </LinearLayout>
 

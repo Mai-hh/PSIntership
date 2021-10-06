@@ -8,6 +8,9 @@ import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,8 +22,15 @@ import android.view.WindowManager;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maihao.littlerecipes.R;
+import com.maihao.littlerecipes.adapter.IngredientsAdapter;
+import com.maihao.littlerecipes.adapter.ProcedureViewPagerAdapter;
 import com.maihao.littlerecipes.databinding.ActivityRecipeBinding;
+import com.maihao.littlerecipes.fragment.ProcedureFragment;
 import com.maihao.littlerecipes.viewmodel.QueryDataViewModel;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,6 +43,10 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
     Toolbar toolbar;
 
     CollapsingToolbarLayout toolbarLayout;
+
+    RecyclerView ingredientsRecyclerView;
+
+    ViewPager2 proceduresViewPager2;
 
     private QueryDataViewModel viewModel;
 
@@ -53,10 +67,26 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         button.setOnClickListener(this);
         initActionBar();
         toolbarLayout.setTitle(intent.getStringExtra("title"));
-        // todo 希望用viewModel绑定
         binding.recipeImageView.setImageResource(intent.getIntExtra("imageId", 0));
-        binding.ingredientsTextView.setText(intent.getStringExtra("ingredients"));
-        binding.proceduresTextView.setText(intent.getStringExtra("procedures"));
+//        binding.ingredientsTextView.setText(intent.getStringExtra("ingredients"));
+//        binding.proceduresTextView.setText(intent.getStringExtra("procedures"));
+
+        // 设置食材布局
+        ingredientsRecyclerView = binding.ingredientsRecyclerView;
+        ingredientsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        List<String> ingredients  = Arrays.asList(intent.getStringExtra("ingredients").split("-").clone());
+        ingredientsRecyclerView.setAdapter(new IngredientsAdapter(this, ingredients));
+
+        // 设置步骤布局
+        proceduresViewPager2 = binding.proceduresViewPager2;
+        List<String> procedures = Arrays.asList(intent.getStringExtra("procedures").split("- ").clone());
+        List<ProcedureFragment> procedureFragments = new ArrayList<>();
+        for (int i = 0; i < procedures.size(); i++) {
+            procedureFragments.add(ProcedureFragment.newInstance(procedures.get(i)));
+        }
+        proceduresViewPager2.setAdapter(new ProcedureViewPagerAdapter(getSupportFragmentManager(), getLifecycle(), procedureFragments));
+
+
     }
 
     private void initActionBar() {
