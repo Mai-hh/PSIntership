@@ -74,7 +74,7 @@ public class RecipeActivity extends AppCompatActivity implements View.OnClickLis
         // 设置食材布局
         ingredientsRecyclerView = binding.ingredientsRecyclerView;
         ingredientsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<String> ingredients  = Arrays.asList(intent.getStringExtra("ingredients").split("-").clone());
+        List<String> ingredients  = Arrays.asList(intent.getStringExtra("ingredients").split("@").clone());
         ingredientsRecyclerView.setAdapter(new IngredientsAdapter(this, ingredients));
 
         // 设置步骤布局

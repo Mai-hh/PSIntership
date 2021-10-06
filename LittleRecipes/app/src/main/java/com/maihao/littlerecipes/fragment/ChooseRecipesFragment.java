@@ -100,220 +100,220 @@ public class ChooseRecipesFragment extends Fragment {
         String[] ingredients = {
                 " 2 tablespoons sesame seeds\n" +
                         "\n" +
-                        "- 1 tablespoon poppy seeds\n" +
+                        "@ 1 tablespoon poppy seeds\n" +
                         "\n" +
-                        "- ½ cup white sugar\n" +
+                        "@ ½ cup white sugar\n" +
                         "\n" +
-                        "- ½ cup olive oil\n" +
+                        "@ ½ cup olive oil\n" +
                         "\n" +
-                        "- ¼ cup distilled white vinegar\n" +
+                        "@ ¼ cup distilled white vinegar\n" +
                         "\n" +
-                        "- ¼ teaspoon paprika\n" +
+                        "@ ¼ teaspoon paprika\n" +
                         "\n" +
-                        "- ¼ teaspoon Worcestershire sauce\n" +
+                        "@ ¼ teaspoon Worcestershire sauce\n" +
                         "\n" +
-                        "- 1 tablespoon minced onion\n" +
+                        "@ 1 tablespoon minced onion\n" +
                         "\n" +
-                        "- 10 ounces fresh spinach - rinsed, dried and torn into bite-size pieces\n" +
+                        "@ 10 ounces fresh spinach - rinsed, dried and torn into bite-size pieces\n" +
                         "\n" +
-                        "- 1 quart strawberries - cleaned, hulled and sliced\n" +
+                        "@ 1 quart strawberries - cleaned, hulled and sliced\n" +
                         "\n" +
-                        "- ¼ cup almonds, blanched and slivered",
+                        "@ ¼ cup almonds, blanched and slivered",
                 " 1 head romaine lettuce- rinsed, dried and chopped\n" +
                         "\n" +
-                        "- 1 red onion, thinly sliced\n" +
+                        "@ 1 red onion, thinly sliced\n" +
                         "\n" +
-                        "- 1 (6 ounce) can pitted black olives\n" +
+                        "@ 1 (6 ounce) can pitted black olives\n" +
                         "\n" +
-                        "- 1 green bell pepper, chopped\n" +
+                        "@ 1 green bell pepper, chopped\n" +
                         "\n" +
-                        "- 1 red bell pepper, chopped\n" +
+                        "@ 1 red bell pepper, chopped\n" +
                         "\n" +
-                        "- 2 large tomatoes, chopped\n" +
+                        "@ 2 large tomatoes, chopped\n" +
                         "\n" +
-                        "- 1 cucumber, sliced\n" +
+                        "@ 1 cucumber, sliced\n" +
                         "\n" +
-                        "- 1 cup crumbled feta cheese\n" +
+                        "@ 1 cup crumbled feta cheese\n" +
                         "\n" +
-                        "- 6 tablespoons olive oil\n" +
+                        "@ 6 tablespoons olive oil\n" +
                         "\n" +
-                        "- 1 teaspoon dried oregano\n" +
+                        "@ 1 teaspoon dried oregano\n" +
                         "\n" +
-                        "- 1 lemon, juiced\n" +
+                        "@ 1 lemon, juiced\n" +
                         "\n" +
-                        "- ground black pepper to taste",
+                        "@ ground black pepper to taste",
                 " ½ pound crumbled blue cheese\n" +
                         "  \n" +
-                        "- ¼ cup sour cream\n" +
+                        "@ ¼ cup sour cream\n" +
                         "  \n" +
-                        "- ⅓ cup buttermilk\n" +
+                        "@ ⅓ cup buttermilk\n" +
                         "\n" +
-                        "- ½ cup mayonnaise\n" +
+                        "@ ½ cup mayonnaise\n" +
                         "\n" +
-                        "- ¼ cup red wine vinegar\n" +
+                        "@ ¼ cup red wine vinegar\n" +
                         "\n" +
-                        "- 1 tablespoon extra-virgin olive oil\n" +
+                        "@ 1 tablespoon extra-virgin olive oil\n" +
                         "\n" +
-                        "- 1½ tablespoons white sugar\n" +
+                        "@ 1½ tablespoons white sugar\n" +
                         "\n" +
-                        "- 1 clove garlic, minced\n" +
+                        "@ 1 clove garlic, minced\n" +
                         "\n" +
-                        "- ground black pepper to taste\n" +
+                        "@ ground black pepper to taste\n" +
                         "\n" +
-                        "- 1 head iceberg lettuce, cut into 8 wedges\n" +
+                        "@ 1 head iceberg lettuce, cut into 8 wedges\n" +
                         "\n" +
-                        "- 2 roma tomatoes, diced\n" +
+                        "@ 2 roma tomatoes, diced\n" +
                         "\n" +
-                        "- 1 small red onion, thinly sliced\n" +
+                        "@ 1 small red onion, thinly sliced\n" +
                         "\n" +
-                        "- ½ pound crumbled blue cheese",
+                        "@ ½ pound crumbled blue cheese",
                 " 1 cup mayonnaise (Optional)\n" +
                         "\n" +
-                        "- ¼ cup white vinegar\n" +
+                        "@ ¼ cup white vinegar\n" +
                         "\n" +
-                        "- 2 tablespoons Dijon mustard\n" +
+                        "@ 2 tablespoons Dijon mustard\n" +
                         "\n" +
-                        "- 2 teaspoons kosher salt, or more to taste\n" +
+                        "@ 2 teaspoons kosher salt, or more to taste\n" +
                         "\n" +
-                        "- ½ teaspoon ground black pepper\n" +
+                        "@ ½ teaspoon ground black pepper\n" +
                         "\n" +
-                        "- ⅛ teaspoon cayenne pepper\n" +
+                        "@ ⅛ teaspoon cayenne pepper\n" +
                         "\n" +
-                        "- 1 tablespoon white sugar, or more to taste\n" +
+                        "@ 1 tablespoon white sugar, or more to taste\n" +
                         "\n" +
-                        "- 1 cup finely diced celery\n" +
+                        "@ 1 cup finely diced celery\n" +
                         "\n" +
-                        "- ¾ cup diced red bell pepper\n" +
+                        "@ ¾ cup diced red bell pepper\n" +
                         "\n" +
-                        "- ½ cup grated carrot\n" +
+                        "@ ½ cup grated carrot\n" +
                         "\n" +
-                        "- ½ cup chopped green onions, white and light parts\n" +
+                        "@ ½ cup chopped green onions, white and light parts\n" +
                         "\n" +
-                        "- ¼ cup diced jalapeno pepper\n" +
+                        "@ ¼ cup diced jalapeno pepper\n" +
                         "\n" +
-                        "- ¼ cup diced poblano pepper\n" +
+                        "@ ¼ cup diced poblano pepper\n" +
                         "\n" +
-                        "- 1 (16 ounce) package uncooked elbow macaroni\n" +
+                        "@ 1 (16 ounce) package uncooked elbow macaroni\n" +
                         "\n" +
-                        "- 1 tablespoon mayonnaise (Optional)\n" +
+                        "@ 1 tablespoon mayonnaise (Optional)\n" +
                         "\n" +
-                        "- 1 tablespoon water (Optional)",
+                        "@ 1 tablespoon water (Optional)",
                 " 1 pint strawberries - cleaned, hulled and sliced\n" +
                         "\n" +
-                        "- 1 pound seedless grapes, halved\n" +
+                        "@ 1 pound seedless grapes, halved\n" +
                         "\n" +
-                        "- 3 kiwis, peeled and sliced\n" +
+                        "@ 3 kiwis, peeled and sliced\n" +
                         "\n" +
-                        "- 3 bananas, sliced\n" +
+                        "@ 3 bananas, sliced\n" +
                         "\n" +
-                        "- 1 (21 ounce) can peach pie filling",
+                        "@ 1 (21 ounce) can peach pie filling",
                 " ⅓ cup fresh lime juice\n" +
                         "\n" +
-                        "- ½ cup olive oil\n" +
+                        "@ ½ cup olive oil\n" +
                         "\n" +
-                        "- 1 clove garlic, minced\n" +
+                        "@ 1 clove garlic, minced\n" +
                         "\n" +
-                        "- 1 teaspoon salt\n" +
+                        "@ 1 teaspoon salt\n" +
                         "\n" +
-                        "- ⅛ teaspoon ground cayenne pepper\n" +
+                        "@ ⅛ teaspoon ground cayenne pepper\n" +
                         "\n" +
-                        "- 2 (15 ounce) cans black beans, rinsed and drained\n" +
+                        "@ 2 (15 ounce) cans black beans, rinsed and drained\n" +
                         "\n" +
-                        "- 1½ cups frozen corn kernels\n" +
+                        "@ 1½ cups frozen corn kernels\n" +
                         "\n" +
-                        "- 1 avocado - peeled, pitted and diced\n" +
+                        "@ 1 avocado - peeled, pitted and diced\n" +
                         "\n" +
-                        "- 1 red bell pepper, chopped\n" +
+                        "@ 1 red bell pepper, chopped\n" +
                         "\n" +
-                        "- 2 tomatoes, chopped\n" +
+                        "@ 2 tomatoes, chopped\n" +
                         "\n" +
-                        "- 6 green onions, thinly sliced\n" +
+                        "@ 6 green onions, thinly sliced\n" +
                         "\n" +
-                        "- ½ cup chopped fresh cilantro (Optional)",
+                        "@ ½ cup chopped fresh cilantro (Optional)",
                 " ½ cup mayonnaise\n" +
                         "\n" +
-                        "- 1 tablespoon lemon juice\n" +
+                        "@ 1 tablespoon lemon juice\n" +
                         "\n" +
-                        "- ¼ teaspoon ground black pepper\n" +
+                        "@ ¼ teaspoon ground black pepper\n" +
                         "\n" +
-                        "- 2 cups chopped, cooked chicken meat\n" +
+                        "@ 2 cups chopped, cooked chicken meat\n" +
                         "\n" +
-                        "- ½ cup blanched slivered almonds\n" +
+                        "@ ½ cup blanched slivered almonds\n" +
                         "\n" +
-                        "- 1 stalk celery, chopped",
+                        "@ 1 stalk celery, chopped",
                 " 6 tablespoons rice wine vinegar\n" +
                         "\n" +
-                        "- 6 tablespoons vegetable oil\n" +
+                        "@ 6 tablespoons vegetable oil\n" +
                         "\n" +
-                        "- 5 tablespoons creamy peanut butter\n" +
+                        "@ 5 tablespoons creamy peanut butter\n" +
                         "\n" +
-                        "- 3 tablespoons soy sauce\n" +
+                        "@ 3 tablespoons soy sauce\n" +
                         "\n" +
-                        "- 3 tablespoons brown sugar\n" +
+                        "@ 3 tablespoons brown sugar\n" +
                         "\n" +
-                        "- 2 tablespoons minced fresh ginger root\n" +
+                        "@ 2 tablespoons minced fresh ginger root\n" +
                         "\n" +
-                        "- 1½ tablespoons minced garlic\n" +
+                        "@ 1½ tablespoons minced garlic\n" +
                         "\n" +
-                        "- 5 cups thinly sliced green cabbage\n" +
+                        "@ 5 cups thinly sliced green cabbage\n" +
                         "\n" +
-                        "- 2 cups thinly sliced red cabbage\n" +
+                        "@ 2 cups thinly sliced red cabbage\n" +
                         "\n" +
-                        "- 2 cups shredded napa cabbage\n" +
+                        "@ 2 cups shredded napa cabbage\n" +
                         "\n" +
-                        "- 2 red bell peppers, thinly sliced\n" +
+                        "@ 2 red bell peppers, thinly sliced\n" +
                         "\n" +
-                        "- 2 carrots, julienned\n" +
+                        "@ 2 carrots, julienned\n" +
                         "\n" +
-                        "- 6 green onions, chopped\n" +
+                        "@ 6 green onions, chopped\n" +
                         "\n" +
-                        "- ½ cup chopped fresh cilantro",
+                        "@ ½ cup chopped fresh cilantro",
                 " 1⅓ cups mayonnaise\n" +
                         "\n" +
-                        "- ⅓ cup sour cream\n" +
+                        "@ ⅓ cup sour cream\n" +
                         "\n" +
-                        "- ⅓ cup buttermilk\n" +
+                        "@ ⅓ cup buttermilk\n" +
                         "\n" +
-                        "- 1 tablespoon minced fresh Italian parsley\n" +
+                        "@ 1 tablespoon minced fresh Italian parsley\n" +
                         "\n" +
-                        "- 2 teaspoons sliced fresh chives\n" +
+                        "@ 2 teaspoons sliced fresh chives\n" +
                         "\n" +
-                        "- ½ teaspoon dried dill weed\n" +
+                        "@ ½ teaspoon dried dill weed\n" +
                         "\n" +
-                        "- ¼ teaspoon dried tarragon\n" +
+                        "@ ¼ teaspoon dried tarragon\n" +
                         "\n" +
-                        "- ¼ teaspoon garlic powder\n" +
+                        "@ ¼ teaspoon garlic powder\n" +
                         "\n" +
-                        "- ¼ teaspoon onion powder\n" +
+                        "@ ¼ teaspoon onion powder\n" +
                         "\n" +
-                        "- ¼ teaspoon freshly ground black pepper\n" +
+                        "@ ¼ teaspoon freshly ground black pepper\n" +
                         "\n" +
-                        "- 1 pinch cayenne pepper\n" +
+                        "@ 1 pinch cayenne pepper\n" +
                         "\n" +
-                        "- 1 pinch salt\n" +
+                        "@ 1 pinch salt\n" +
                         "\n" +
-                        "- 2 drops Worcestershire sauce",
+                        "@ 2 drops Worcestershire sauce",
                 " 2 tablespoons sesame seeds\n" +
                         "\n" +
-                        "- 1 tablespoon poppy seeds\n" +
+                        "@ 1 tablespoon poppy seeds\n" +
                         "\n" +
-                        "- ½ cup white sugar\n" +
+                        "@ ½ cup white sugar\n" +
                         "\n" +
-                        "- ½ cup olive oil\n" +
+                        "@ ½ cup olive oil\n" +
                         "\n" +
-                        "- ¼ cup distilled white vinegar\n" +
+                        "@ ¼ cup distilled white vinegar\n" +
                         "\n" +
-                        "- ¼ teaspoon paprika\n" +
+                        "@ ¼ teaspoon paprika\n" +
                         "\n" +
-                        "- ¼ teaspoon Worcestershire sauce\n" +
+                        "@ ¼ teaspoon Worcestershire sauce\n" +
                         "\n" +
-                        "- 1 tablespoon minced onion\n" +
+                        "@ 1 tablespoon minced onion\n" +
                         "\n" +
-                        "- 10 ounces fresh spinach - rinsed, dried and torn into bite-size pieces\n" +
+                        "@ 10 ounces fresh spinach - rinsed, dried and torn into bite-size pieces\n" +
                         "\n" +
-                        "- 1 quart strawberries - cleaned, hulled and sliced\n" +
+                        "@ 1 quart strawberries - cleaned, hulled and sliced\n" +
                         "\n" +
-                        "- ¼ cup almonds, blanched and slivered"
+                        "@ ¼ cup almonds, blanched and slivered"
         };
 
         String[] procedures = {
