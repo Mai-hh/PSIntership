@@ -17,7 +17,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maihao.littlerecipes.R;
+import com.maihao.littlerecipes.activity.MainActivity;
 import com.maihao.littlerecipes.adapter.MainViewAdapter;
 import com.maihao.littlerecipes.database.RecipeDataSQLHelper;
 import com.maihao.littlerecipes.databinding.FragmentChooseRecipesBinding;
@@ -32,6 +35,8 @@ import java.util.List;
 public class ChooseRecipesFragment extends Fragment {
 
     RecyclerView mRecyclerView;
+
+    FloatingActionButton button;
 
     FragmentChooseRecipesBinding binding;
 
@@ -55,6 +60,7 @@ public class ChooseRecipesFragment extends Fragment {
         // 从数据库中请求数据
         queryRecipes();
 
+        // 设置RecyclerView
         mRecyclerView = binding.recipesRecyclerView;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         MainViewAdapter adapter = new MainViewAdapter(getActivity(), viewModels, sqlHelper);
@@ -62,6 +68,20 @@ public class ChooseRecipesFragment extends Fragment {
         ItemTouchHelper.Callback callback = new RecyclerItemTouchHelper(adapter);
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
         itemTouchHelper.attachToRecyclerView(mRecyclerView);
+
+        // 设置Button
+        button = binding.recipeAddButton;
+        if (getActivity() instanceof MainActivity) {
+            button.setVisibility(View.VISIBLE);
+        } else {
+            button.setVisibility(View.INVISIBLE);
+        }
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initData();
+            }
+        });
 
         return binding.getRoot();
     }
@@ -473,14 +493,8 @@ public class ChooseRecipesFragment extends Fragment {
             data.setIngredients(ingredients[i]);
             data.setProcedure(procedures[i]);
             Utility.putRecipeData(data, sqlHelper);
-            QueryDataViewModel viewModel = new QueryDataViewModel();
-            viewModel.title.setValue(data.getTitle());
-            viewModel.content.setValue(data.getContent());
-            viewModel.imageId.setValue(data.getImageId());
-            viewModel.imageSrc.setValue(data.getImageSrc());
-            viewModel.ingredients.setValue(data.getIngredients());
-            viewModel.procedures.setValue(data.getProcedure());
-            viewModels.add(viewModel);
         }
+        queryRecipes();
+        mRecyclerView.getAdapter().notifyDataSetChanged();
     }
 }
