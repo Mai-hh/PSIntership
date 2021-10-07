@@ -37,4 +37,16 @@ public class Utility {
 
     }
 
+    public static boolean deleteRecipeData(String title, RecipeDataSQLHelper sqlHelper) {
+
+        if (title == null) {
+            return false;
+        }
+
+        SQLiteDatabase db = sqlHelper.getWritableDatabase();
+        db.delete("Recipes", "title = ?", new String[] { title });
+
+        return true;
+    }
+
 }

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ import com.maihao.littlerecipes.adapter.MainViewAdapter;
 import com.maihao.littlerecipes.database.RecipeDataSQLHelper;
 import com.maihao.littlerecipes.databinding.FragmentChooseRecipesBinding;
 import com.maihao.littlerecipes.model.RecipeData;
+import com.maihao.littlerecipes.util.RecyclerItemTouchHelper;
 import com.maihao.littlerecipes.util.Utility;
 import com.maihao.littlerecipes.viewmodel.QueryDataViewModel;
 
@@ -55,8 +57,11 @@ public class ChooseRecipesFragment extends Fragment {
 
         mRecyclerView = binding.recipesRecyclerView;
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        MainViewAdapter adapter = new MainViewAdapter(getActivity(), viewModels);
+        MainViewAdapter adapter = new MainViewAdapter(getActivity(), viewModels, sqlHelper);
         mRecyclerView.setAdapter(adapter);
+        ItemTouchHelper.Callback callback = new RecyclerItemTouchHelper(adapter);
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+        itemTouchHelper.attachToRecyclerView(mRecyclerView);
 
         return binding.getRoot();
     }

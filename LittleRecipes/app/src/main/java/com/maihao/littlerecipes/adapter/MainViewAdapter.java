@@ -15,17 +15,23 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.maihao.littlerecipes.R;
 import com.maihao.littlerecipes.activity.RecipeActivity;
+import com.maihao.littlerecipes.database.RecipeDataSQLHelper;
 import com.maihao.littlerecipes.databinding.ItemCardViewBinding;
 import com.maihao.littlerecipes.model.RecipeData;
+import com.maihao.littlerecipes.util.RecyclerItemTouchHelper;
+import com.maihao.littlerecipes.util.Utility;
 import com.maihao.littlerecipes.viewmodel.QueryDataViewModel;
 
+import java.util.Collections;
 import java.util.List;
 
-public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainViewHolder> {
+public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainViewHolder> implements RecyclerItemTouchHelper.ItemTouchHelperCallback {
 
     private Context mContext;
 
     private List<QueryDataViewModel> viewModels;
+
+    private RecipeDataSQLHelper sqlHelper;
 
     public static class MainViewHolder extends RecyclerView.ViewHolder {
 
@@ -48,9 +54,10 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
         }
     }
 
-    public MainViewAdapter(Context mContext, List<QueryDataViewModel> viewModels) {
+    public MainViewAdapter(Context mContext, List<QueryDataViewModel> viewModels, RecipeDataSQLHelper sqlHelper) {
         this.mContext = mContext;
         this.viewModels = viewModels;
+        this.sqlHelper = sqlHelper;
     }
 
     @NonNull
@@ -90,4 +97,20 @@ public class MainViewAdapter extends RecyclerView.Adapter<MainViewAdapter.MainVi
         return viewModels.size();
     }
 
+
+    // 接口实现
+    @Override
+    public void onMove(int fromPosition, int toPosition) {
+        // todo 数据库操作
+        Collections.swap(viewModels, fromPosition, toPosition);
+        notifyItemMoved(fromPosition, toPosition);
+    }
+
+    @Override
+    public void onItemDelete(int position) {
+        // todo 数据库操作
+        Utility.deleteRecipeData(viewModels.get(position).title.getValue(), sqlHelper);
+        viewModels.remove(position);
+        notifyItemRemoved(position);
+    }
 }

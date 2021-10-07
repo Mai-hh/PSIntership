@@ -49,7 +49,6 @@ public class RecipeData {
         this.content = content;
     }
 
-
     public int getImageId() {
         return imageId;
     }
