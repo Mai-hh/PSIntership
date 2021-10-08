@@ -65,14 +65,14 @@ public class ChooseRecipesFragment extends Fragment {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         MainViewAdapter adapter = new MainViewAdapter(getActivity(), viewModels, sqlHelper);
         mRecyclerView.setAdapter(adapter);
-        ItemTouchHelper.Callback callback = new RecyclerItemTouchHelper(adapter);
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
-        itemTouchHelper.attachToRecyclerView(mRecyclerView);
 
         // 设置Button
         button = binding.recipeAddButton;
         if (getActivity() instanceof MainActivity) {
             button.setVisibility(View.VISIBLE);
+            ItemTouchHelper.Callback callback = new RecyclerItemTouchHelper(adapter);
+            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(callback);
+            itemTouchHelper.attachToRecyclerView(mRecyclerView);
         } else {
             button.setVisibility(View.INVISIBLE);
         }

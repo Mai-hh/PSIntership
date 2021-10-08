@@ -11,7 +11,7 @@ public class Calculator {
             {'>', '>', '>', '>', '<', '>', '>'},
             {'>', '>', '>', '>', '<', '>', '>'},
             {'<', '<', '<', '<', '<', '=', 'E'},
-            {'>', '>', '>', '>', '>', '>', '>'},
+            {'E', 'E', 'E', 'E', 'E', 'E', 'E'},
             {'<', '<', '<', '<', '<', 'E', '='},
     };
 
@@ -19,6 +19,8 @@ public class Calculator {
     Stack<Double> numStack = new Stack<>();
     // 运算符栈
     Stack<Character> operatorStack = new Stack<>();
+    // 括号计数
+    int bracketSum = 0;
 
     Scanner scanner = new Scanner(System.in);
 
@@ -55,6 +57,10 @@ public class Calculator {
                 // 读到运算符
                 char currentOperator = formula.charAt(index);
 
+                if (currentOperator == '(' || currentOperator == ')') {
+                    bracketSum ++;
+                }
+
                 int curOperatorNum = getOperatorNum(currentOperator);
                 // 如果输入了非法字符，就退出
                 if (curOperatorNum == -1) {
@@ -86,10 +92,6 @@ public class Calculator {
                             double result = operate(num1, num2, opr);
                             numStack.push(result);
                             break;
-//                        case 'E':
-////                            System.out.println("算式格式异常");
-//                            loop = false;
-//                            break;
                         default:
                             loop = false;
                             break;
@@ -99,7 +101,7 @@ public class Calculator {
                 index++;
             }
         }
-        if (numStack.size() != 1 && operatorStack.size() != 0) {
+        if (numStack.size() != 1 && operatorStack.size() != 0 || bracketSum % 2 != 0) {
             System.out.println("算式格式有误");
         } else if (numStack.isEmpty()) {
             System.out.println("请输入数字");

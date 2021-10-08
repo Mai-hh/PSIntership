@@ -90,7 +90,7 @@
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/ingredients_recycler_view"
-                                android:layout_marginStart="5dp"
+                                android:layout_marginHorizontal="10dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
 
@@ -121,7 +121,7 @@
 
                             <androidx.viewpager2.widget.ViewPager2
                                 android:id="@+id/procedures_view_pager_2"
-                                android:layout_marginHorizontal="10dp"
+                                android:layout_marginHorizontal="15dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="180dp" />
 
